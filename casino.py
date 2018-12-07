@@ -3,35 +3,20 @@
 import os
 import random
 
-class Joueur:
+credit = float(input("saisissez un crédit : "))
+mise = float(input("saisissez votre mise : "))
+gain = 0
+jouer = 1
 
-    JOUEURS = []
+def croupier(nombre, couleur):
+    nombre = random.randrange(50)
+    couleur = random.randrange(2)
+    return couleur * 100 + nombre
 
-    def __init__(self, nom, credit):
-        self.nom = nom
-        self.credit = credit
+while credit > 0 and jouer == 1:
     
-    def inscription_joueur(self):
-        self.JOUEURS.append("toto")
-
-
-class Roulette:
-    def tirage(self):
-        self.nombre = random.randrange(50)
-        self.couleur = random.randrange(2)
-
-
-
-
-joueur1 = Joueur(input("saisir nom : "), input("saisir crédit : ") )
-roulette = Roulette()
-roulette.tirage()
-roulette.tirage()
-
-print("bonjour " + joueur1.nom + " tu as un crédit de " + joueur1.credit)
-print("nombre : " + str(roulette.nombre) + " couleur : " + str(roulette.couleur))
-roulette.tirage()
-print("nombre : " + str(roulette.nombre) + " couleur : " + str(roulette.couleur))
-
+    credit = credit - mise + gain
+    jouer = int(input("tapez 1 pour continuer, ou n'importe quoi pour arrêter"))
+    
 
 os.system("pause")
